@@ -1,3 +1,6 @@
+from game_manager import game_mode_selection, play_vs_friend, play_vs_computer
+
+
 print('=' * 40)
 print(' '* 7 + 'Добро пожаловать в WORDLE!')
 print('=' * 40)

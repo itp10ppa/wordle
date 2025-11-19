@@ -15,3 +15,14 @@ def game_mode_selection():
         except ValueError:
             print('Ошибка: вы ввели некорректное значение! Попробуйте ещё раз.')
 
+
+def validation():
+    print()
+
+
+def play_vs_computer():
+    print()
+
+
+def play_vs_friend():
+    print()
