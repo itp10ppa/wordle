@@ -17,7 +17,19 @@ def game_mode_selection():
 
 
 def validation():
-    print()
+    while True:
+        try:
+            guess = input('Введите вашу догадку: ').strip()
+
+            if not all('а' <= char <= 'я' for char in guess):
+                print('Слово должно содержать только русские буквы! Попробуйте еще раз.')
+            elif len(guess) != 5:
+                print('Слово должно состоять из 5 букв! Попробуйте еще раз.')
+            else:
+                return guess
+
+        except ValueError:
+            print('Ошибка: вы ввели некорректное значение! Попробуйте ещё раз.')
 
 
 def play_vs_computer():
@@ -26,3 +38,5 @@ def play_vs_computer():
 
 def play_vs_friend():
     print()
+
+
