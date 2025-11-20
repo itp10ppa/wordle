@@ -21,9 +21,9 @@ def game_mode_selection():
 
 def validation():
     while True:
-        guess = input('Введите вашу догадку: ').strip()
+        guess = input('Введите вашу догадку: ').strip().upper()
 
-        if not all('а' <= char <= 'я' for char in guess):
+        if not all('А' <= char <= 'Я' for char in guess):
             print('Слово должно содержать только русские буквы! Попробуйте еще раз.')
         elif len(guess) != 5:
             print('Слово должно состоять из 5 букв! Попробуйте еще раз.')
@@ -31,35 +31,26 @@ def validation():
             return guess
 
 
-
-def play_vs_computer():
-    words = ['ангар', 'касса', 'стиль', 'принт']
-    target_word = random.choice(words)
-    print(target_word)
-
+def play_logic(target_word):
     attempts = []
     current_attempt = 0
     is_winner = False
 
-    print('Компьютер загадал слово. Введите русское слово из 5 букв, чтобы угадать. У вас 6 попыток. Удачи!')
-
     while current_attempt < 6 and not is_winner:
-        gues = validation()
-        attempts.append(gues)
+        guess = validation()
+        attempts.append(guess)
         current_attempt += 1
 
         for attempt in attempts:
-            print(attempt.upper())
+            print(attempt)
 
-        if gues == target_word:
+        if guess == target_word.upper():
             is_winner = True
-            print('WIN')
+            print(f"Победа! Вы угадали слово с {current_attempt} попытки.")
 
     if not is_winner:
         print('Вы не угадали. Загаданное слово было', target_word.upper())
 
-
-def play_vs_friend():
-    print()
+    return is_winner
 
 

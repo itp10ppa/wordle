@@ -1,4 +1,5 @@
-from game_manager import game_mode_selection, play_vs_friend, play_vs_computer
+from game_manager import game_mode_selection, play_logic
+import random
 
 
 print('=' * 40)
@@ -15,18 +16,18 @@ print('\n--- ПРАВИЛА ИГРЫ --- \n'
 game_mode = game_mode_selection()
 
 if game_mode == 2:
-    print('Компьютер загадал слово')
-    winner = play_vs_computer()
+    print('Компьютер загадал слово. Введите русское слово из 5 букв, чтобы угадать. У вас 6 попыток. Удачи!')
+    words = ['ангар', 'касса', 'стиль', 'принт']
+    target_word = random.choice(words)
+    print(target_word)
 
-    if winner:
-        print('ПОБЕДА! Искусственный интеллект побежден!')
-    else:
-        print('Не сдавайтесь! Попробуйте еще раз!')
+    play_logic(target_word)
+
 else:
     print('Отвернитесь, пока ваш друг загадывает слово')
-    winner = play_vs_friend()
+    friend_word = input().strip().upper()
+    print(friend_word)
+    print('\n' * 10)
 
-    if winner:
-        print('ПОБЕДА! Поздравляем, вы угадали слово друга!')
-    else:
-        print('К сожалению, вы не угадали слово.')
+    play_logic(friend_word)
+
