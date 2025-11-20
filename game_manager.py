@@ -1,6 +1,3 @@
-import random
-
-
 def game_mode_selection():
     print('--- ВЫБОР РЕЖИМА ИГРЫ ---\n')
     print('1 - Играть с другом')
@@ -21,20 +18,21 @@ def game_mode_selection():
 
 def validation():
     while True:
-        guess = input('Введите вашу догадку: ').strip().upper()
+        word = input().strip().upper()
 
-        if not all('А' <= char <= 'Я' for char in guess):
+        if not all('А' <= char <= 'Я' for char in word):
             print('Слово должно содержать только русские буквы! Попробуйте еще раз.')
-        elif len(guess) != 5:
+        elif len(word) != 5:
             print('Слово должно состоять из 5 букв! Попробуйте еще раз.')
         else:
-            return guess
+            return word
 
 
 def play_logic(target_word):
     attempts = []
     current_attempt = 0
     is_winner = False
+    print('Попробуйте угадать слово:')
 
     while current_attempt < 6 and not is_winner:
         guess = validation()
@@ -47,6 +45,8 @@ def play_logic(target_word):
         if guess == target_word.upper():
             is_winner = True
             print(f"Победа! Вы угадали слово с {current_attempt} попытки.")
+        else:
+            print('У вас осталось попыток:', 6 - current_attempt, '\n')
 
     if not is_winner:
         print('Вы не угадали. Загаданное слово было', target_word.upper())

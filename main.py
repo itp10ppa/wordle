@@ -1,4 +1,4 @@
-from game_manager import game_mode_selection, play_logic
+from game_manager import game_mode_selection, play_logic, validation
 import random
 
 
@@ -25,8 +25,8 @@ if game_mode == 2:
 
 else:
     print('Отвернитесь, пока ваш друг загадывает слово')
-    friend_word = input().strip().upper()
-    print(friend_word)
+    print('Введите загаданное слово:')
+    friend_word = validation()
     print('\n' * 10)
 
     play_logic(friend_word)
