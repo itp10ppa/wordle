@@ -1,9 +1,6 @@
-# проверка слова (чтобы это было русское слово из 5 букв)
-'''САШЕ: Добавить проверку на существование слова: оно должно быть в словаре.
-Слово должно быть русским нарицательным существительным в единственном числе
-(множественное число допускается только в словах, в которых нет единственного числа,
-например штаны, брюки).
-Если получится, не изменяй мой код, просто добавь свой. Этот коммент удалить'''
+from color import display_attempt_history, display_current_attempt
+
+
 def validation():
     while True:
         word = input().strip().upper()
@@ -27,16 +24,23 @@ def play_logic(target_word):
         guess = validation()
         attempts.append(guess)
         current_attempt += 1
-        print('\n' * 40)
 
-        for attempt in attempts:
-            print(attempt)
+
+        # Отображаем историю попыток с цветными кубиками
+        print("╔══════════════════════════════════════╗")
+        print("║           ИСТОРИЯ ПОПЫТОК            ║")
+        print("╚══════════════════════════════════════╝")
+        display_attempt_history(attempts, target_word)
+
+        # Показываем текущую попытку с расшифровкой цветов
+        display_current_attempt(guess, target_word)
 
         if guess == target_word.upper():
             is_winner = True
-            print(f"\nПобеда! Вы угадали слово с {current_attempt} попытки.")
+            print(f"\nПобеда! Вы угадали слово с {current_attempt} попытки!")
         else:
-            print('\nУ вас осталось попыток:', 6 - current_attempt, '\n')
+            remaining = 6 - current_attempt
+            print(f'\nУ вас осталось попыток: {remaining} \n')
 
     if not is_winner:
         print('Вы не угадали. Загаданное слово было', target_word.upper())
