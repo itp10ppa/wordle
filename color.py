@@ -36,3 +36,24 @@ def create_colored_block(char, color):
     }
 
     return f"{colors[color]} {char} {colors['reset']}"
+
+def display_colored_word(word, color_pattern):
+
+    #Отображает слово в виде цветных кубиков
+
+    result = ""
+    for i, char in enumerate(word):
+        result += create_colored_block(char, color_pattern[i]) + " "
+    return result
+
+
+def display_attempt_history(attempts, target_word):
+    #Отображает историю всех попыток с цветными кубиками
+    print("\n" + "═" * 50)
+    print("ИСТОРИЯ ПОПЫТОК:")
+    print("═" * 50)
+
+    for i, attempt_word in enumerate(attempts, 1):
+        color_pattern = analyze_letters(attempt_word, target_word)
+        colored_blocks = display_colored_word(attempt_word, color_pattern)
+        print(f"Попытка {i}: {colored_blocks}")
