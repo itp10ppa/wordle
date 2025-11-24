@@ -64,8 +64,4 @@ def display_current_attempt(guess, target_word):
     colored_blocks = display_colored_word(guess, color_pattern)
     print(f"\nТекущая попытка: {colored_blocks}")
 
-    # Легенда цветов
-    print(f"\n📋 Расшифровка цветов:")
-    print(f"  {create_colored_block('А', 'green')} - буква на правильном месте")
-    print(f"  {create_colored_block('Б', 'yellow')} - буква есть в слове, но на другом месте")
-    print(f"  {create_colored_block('В', 'gray')} - буквы нет в слове")
+
