@@ -24,3 +24,15 @@ def analyze_letters(user_word, target_word):
                     break
 
     return result
+
+def create_colored_block(char, color):
+    #Создает цветной кубик с буквой внутри
+    colors = {
+        'green': '\033[48;5;34m\033[1;97m',  # Ярко-зеленый фон, белый жирный текст
+        'yellow': '\033[48;5;178m\033[1;97m',  # Ярко-желтый фон, белый жирный текст
+        'gray': '\033[48;5;240m\033[1;97m',  # Темно-серый фон, белый жирный текст
+        'blue': '\033[48;5;33m\033[1;97m',  # Синий фон, белый жирный текст
+        'reset': '\033[0m'  # Сброс цвета
+    }
+
+    return f"{colors[color]} {char} {colors['reset']}"
