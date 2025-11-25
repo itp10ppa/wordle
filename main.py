@@ -1,4 +1,5 @@
 from game_manager import play_logic, validation
+from word_validator import dictionary
 import random
 
 
@@ -27,8 +28,8 @@ def run_game():
         print('\n' * 40)
         print('Компьютер загадал слово. Введите русское слово из 5 букв, чтобы угадать. У вас 6 попыток. Удачи!')
 
-        '''САШЕ: В строке 31 надо убрать лист и вместо него подключить словарь'''
-        words = ['ангар', 'касса', 'стиль', 'принт']
+
+        words = dictionary()
         target_word = random.choice(words)
         print(target_word)
 
