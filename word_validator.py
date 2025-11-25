@@ -1,3 +1,4 @@
+# Открыть словарь
 def dictionary():
     with open("dictionary.txt", "r", encoding="utf-8") as f:
         words = set()
@@ -8,6 +9,8 @@ def dictionary():
 
         return sorted(words)
 
+
+# Проверка есть ли слово в словаре
 def check_word_in_dictionary(word_to_check):
     if word_to_check.lower() in dictionary():
         return True

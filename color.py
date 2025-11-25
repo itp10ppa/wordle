@@ -1,4 +1,4 @@
-#Анализирует совпадения букв между словами и возвращает цвета для каждой буквы
+# Анализирует совпадения букв между словами и возвращает цвета для каждой буквы
 def analyze_letters(user_word, target_word):
     user_word = user_word.upper()
     target_word = target_word.upper()
@@ -22,7 +22,7 @@ def analyze_letters(user_word, target_word):
     return result
 
 
-#Создает цветной кубик с буквой внутри
+# Создает цветной кубик с буквой внутри
 def create_colored_block(char, color):
     colors = {
         'green': '\033[48;5;34m\033[1;97m',  # Ярко-зеленый фон, белый жирный текст
@@ -33,7 +33,7 @@ def create_colored_block(char, color):
     return f'{colors[color]} {char} {colors['reset']}'
 
 
-#Отображает слово в виде цветных кубиков
+# Отображает слово в виде цветных кубиков
 def display_colored_word(word, color_pattern):
     result = ''
 
@@ -43,7 +43,7 @@ def display_colored_word(word, color_pattern):
     return result
 
 
-#Отображает историю всех попыток с цветными кубиками
+# Отображает историю всех попыток с цветными кубиками
 def display_attempt_history(attempts, target_word):
     for i, attempt_word in enumerate(attempts, 1):
         color_pattern = analyze_letters(attempt_word, target_word)
