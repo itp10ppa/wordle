@@ -1,6 +1,7 @@
 from game_manager import play_logic, validation
 import random
 
+
 def run_game():
     print('\n--- ПРАВИЛА ИГРЫ ---')
     print('Цель: угадать загаданное из 5 букв слово за 6 попыток.')
@@ -16,10 +17,12 @@ def run_game():
     while True:
         try:
             game_mode_choice = int(input('\nВаш выбор (введите число): ').strip())
+
             if game_mode_choice == 1 or game_mode_choice == 2:
                 break
             else:
                 print('Ошибка: вы ввели некорректное значение! Попробуйте ещё раз.')
+
         except ValueError:
             print('Ошибка: введите число 1 или 2!')
 
@@ -29,23 +32,23 @@ def run_game():
 
         words = ['ангар', 'касса', 'стиль', 'принт']
         target_word = random.choice(words)
-
         play_logic(target_word)
 
     elif game_mode_choice == 2:
         print('\n' * 40)
         print('Отвернитесь, пока ваш друг загадывает слово')
-        print('Введите загаданное слово: ')
+        print('Введите слово, которое вы загадали: ')
         friend_word = validation()
+
         print('\n' * 40)
         print('Теперь угадывайте слово!')
         play_logic(friend_word.lower())
 
 
 print('\n' * 10)
-print('=' * 40)
-print(' ' * 7 + 'Добро пожаловать в WORDLE!')
-print('=' * 40)
+print('╔══════════════════════════════════════╗')
+print('║      ДОБРО ПОЖАЛОВАТЬ В WORDLE!      ║')
+print('╚══════════════════════════════════════╝\n')
 
 run_game()
 
@@ -60,4 +63,3 @@ while True:
         break
     else:
         print('Ошибка: некорректное значение. Попробуйте еще раз.')
-
