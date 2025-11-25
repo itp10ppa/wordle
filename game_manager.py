@@ -86,7 +86,16 @@ def run_game():
     elif game_mode_choice == 2:
         print('\n' * 40)
         print('Отвернитесь, пока ваш друг загадывает слово')
-        friend_word = input('Введите слово, которое вы загадали: ').strip().lower()
+
+        while True:
+            friend_word = input('Введите слово, которое вы загадали: ').strip().upper()
+
+            if not all(('А' <= char <= 'Я') or char == 'Ё' for char in friend_word):
+                print('Слово должно содержать только русские буквы! Попробуйте еще раз.')
+            elif len(friend_word) != 5:
+                print('Слово должно состоять из 5 букв! Попробуйте еще раз.')
+            else:
+                break
 
         print('\n' * 40)
         print('Теперь угадывайте слово!')
