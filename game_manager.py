@@ -1,6 +1,7 @@
 from color import display_attempt_history
 
 
+# Проверка слова на длину и корректность
 def validation():
     while True:
         word = input().strip().upper()
@@ -13,29 +14,28 @@ def validation():
             return word
 
 
-# угадывание слов (сравнение введенного слова с загаданным)
+# Сравнение введенного слова с загаданным
 def play_logic(target_word):
     attempts = []
     current_attempt = 0
     is_winner = False
-    print('\nПопробуйте угадать слово:')
 
     while current_attempt < 6 and not is_winner:
+        print('\nПопробуйте угадать слово:')
         guess = validation()
         attempts.append(guess)
         current_attempt += 1
 
+        print('\n' * 40)
+        print('╔══════════════════════════════════════╗')
+        print('║           ИСТОРИЯ ПОПЫТОК            ║')
+        print('╚══════════════════════════════════════╝\n')
 
-        # Отображаем историю попыток с цветными кубиками
-        print("╔══════════════════════════════════════╗")
-        print("║           ИСТОРИЯ ПОПЫТОК            ║")
-        print("╚══════════════════════════════════════╝")
         display_attempt_history(attempts, target_word)
-
 
         if guess == target_word.upper():
             is_winner = True
-            print(f"\nПобеда! Вы угадали слово с {current_attempt} попытки!")
+            print(f'\nПобеда! Вы угадали слово с {current_attempt} попытки!')
         else:
             remaining = 6 - current_attempt
             print(f'\nУ вас осталось попыток: {remaining} \n')
