@@ -1,4 +1,4 @@
-from color import display_attempt_history, display_current_attempt
+from color import display_attempt_history
 
 
 def validation():
