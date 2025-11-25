@@ -7,3 +7,9 @@ def dictionary():
                 words.add(line.strip())
 
         return sorted(words)
+
+def check_word_in_dictionary(word_to_check):
+    if word_to_check.lower() in dictionary():
+        return True
+
+    return False
