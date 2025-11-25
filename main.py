@@ -2,6 +2,7 @@ from game_manager import play_logic, validation
 import random
 
 
+# Запуск игры
 def run_game():
     print('\n--- ПРАВИЛА ИГРЫ --- \n'
           '\nЦель: угадать загаданное из 5 букв слово за 6 попыток.'
