@@ -32,8 +32,6 @@ def play_logic(target_word):
         print("╚══════════════════════════════════════╝")
         display_attempt_history(attempts, target_word)
 
-        # Показываем текущую попытку с расшифровкой цветов
-        display_current_attempt(guess, target_word)
 
         if guess == target_word.upper():
             is_winner = True
