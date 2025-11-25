@@ -49,6 +49,3 @@ def display_attempt_history(attempts, target_word):
         color_pattern = analyze_letters(attempt_word, target_word)
         colored_blocks = display_colored_word(attempt_word, color_pattern)
         print(f'Попытка {i}: {colored_blocks}')
-
-
-
